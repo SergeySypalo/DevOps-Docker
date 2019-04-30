@@ -4,8 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t sergeysypalo/PlatOps-Docker .
+  - docker build -t sergeysypalo/platops .
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push sergeysypalo/PlatOps-Docker
+  - docker push sergeysypalo/platops
