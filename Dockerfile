@@ -7,6 +7,9 @@ RUN pwsh -command "Install-Module VMWare.PowerCLI -Force"
 # Disable PowerCLI Customer Experience Program participation
 RUN pwsh -command "Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP:\$true -Confirm:\$false"
 
+# Ignore self-signed certificate warning
+RUN pwsh -command "Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false"
+
 # Copy Cisco UCS Power Tools
 COPY  ./Modules ./usr/local/share/powershell/Modules
 
