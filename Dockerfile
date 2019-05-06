@@ -1,5 +1,5 @@
 # Use an existing docker image as a base 
-FROM mcr.microsoft.com/powershell:preview
+FROM mcr.microsoft.com/powershell
 
 # Install and Import PowerCLI
 RUN pwsh -command "Install-Module VMWare.PowerCLI -Force"
