@@ -11,7 +11,10 @@ RUN pwsh -command "Set-PowerCLIConfiguration -Scope User -InvalidCertificateActi
 RUN apt-get update -y
 
 # Install Python
-RUN apt-get install python3 -y
+RUN apt-get install python3-pip -y
+
+# Install Ansible
+RUN pip3 install ansible
 
 # Copy Cisco UCS Power Tools
 COPY  ./Modules ./usr/local/share/powershell/Modules
