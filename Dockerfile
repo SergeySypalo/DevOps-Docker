@@ -11,8 +11,8 @@ RUN pwsh -command "Set-PowerCLIConfiguration -Scope User -InvalidCertificateActi
 RUN apt-get update -y
 
 # Install dependencies
-RUN apt-get install python3-pip iputils-ping -y
-RUN pip3 install ansible requests
+RUN apt-get install python3-pip iputils-ping nano -y
+RUN pip3 install ansible requests paramiko jira
 
 # Copy Cisco UCS Power Tools
 COPY  ./Modules ./usr/local/share/powershell/Modules
