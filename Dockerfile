@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/powershell
 
 # Install and Import PowerCLI
-RUN pwsh -command "Install-Module VMWare.PowerCLI -Force"
+RUN pwsh -command "Install-Module VMWare.PowerCLI, AWSPowerShell.NetCore -Force"
 
 # Disable PowerCLI Customer Experience Program participation and self-service certificate warning
 RUN pwsh -command "Set-PowerCLIConfiguration -Scope User -InvalidCertificateAction Ignore -ParticipateInCEIP:\$true -Confirm:\$false"
