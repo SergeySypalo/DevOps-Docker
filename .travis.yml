@@ -4,11 +4,11 @@ services:
   - docker
 
 before_install:
-  - docker build -t sergeysypalo/platops .
+  - docker build -t sergeysypalo/devops .
 
 script:
-  - docker images sergeysypalo/platops
+  - docker images sergeysypalo/devops
 
 after_success:  
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push sergeysypalo/platops
+  - docker push sergeysypalo/devops
