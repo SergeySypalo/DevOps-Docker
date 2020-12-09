@@ -12,7 +12,7 @@ RUN apt-get update -y
 
 # Install dependencies
 RUN apt-get install python3-pip iputils-ping nano -y
-RUN pip3 install ansible requests paramiko jira
+RUN pip3 install ansible requests paramiko jira ucsmsdk
 
 # Copy Cisco UCS Power Tools
 COPY  ./Modules ./usr/local/share/powershell/Modules
