@@ -2,30 +2,19 @@
 FROM mcr.microsoft.com/powershell:7.2.0-preview.1-ubuntu-20.04
 
 # Upgrade packages
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
-# Install update-manager-core package
-RUN apt-get install update-manager-core
+# Install wget and apt-utils packages
+RUN apt-get install wget -y
 
-# Change default branch from lts to normal
-RUN sed -i 's/lts/normal/g' /etc/update-manager/release-upgrades
-
-# Change default distro from your current focal (20.04 codename) to groovy (20.10 codename)
-RUN sed -i 's/focal/groovy/g' /etc/apt/sources.list
-
-# Run full upgrade
-RUN apt-get dist-upgrade
-
-# Run cleanup
-RUN apt-get autoremove && apt-get clean
-
-# Change current directory to /tmp
+# Update PowerShell to 7.2-preview2
 RUN cd /tmp
 RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.2/powershell-preview_7.2.0-preview.2-1.ubuntu.20.04_amd64.deb
 RUN dpkg -i *.deb
+RUN rm powershell-preview_7.2.0-preview.2-1.ubuntu.20.04_amd64.deb
 
 # Install dependencies
-RUN apt-get install python3-pip iputils-ping nano
+RUN apt-get install python3-pip iputils-ping nano -y
 RUN pip3 install ansible requests paramiko jira ucsmsdk
 
 # Install modules
