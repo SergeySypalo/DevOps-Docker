@@ -13,13 +13,6 @@
         - uses: actions/checkout@v2
         - name: "Build the Docker image"
           run: "docker build . --file Dockerfile --tag devops:$(date +%s)"
-  true:
-    pull_request:
-      branches:
-        - master
-    push:
-      branches:
-        - master
 - 
   name: "Publish Docker image"
   on:
