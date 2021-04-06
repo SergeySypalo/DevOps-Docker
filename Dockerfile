@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/powershell:preview-ubuntu-20.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies
-RUN apt-get install python3-pip iputils-ping nano
+RUN apt-get install python3-pip iputils-ping nano -y
 RUN pip3 install ansible requests paramiko jira ucsmsdk
 
 # Install modules
