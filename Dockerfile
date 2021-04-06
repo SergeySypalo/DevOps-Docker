@@ -1,17 +1,8 @@
 # Use an existing docker image as a base 
-FROM mcr.microsoft.com/powershell:7.2.0-preview.1-ubuntu-20.04
+FROM mcr.microsoft.com/powershell:preview-ubuntu-20.04
 
 # Upgrade packages
 RUN apt-get update && apt-get upgrade -y
-
-# Install wget and apt-utils packages
-RUN apt-get install wget -y
-
-# Update PowerShell to 7.2-preview2
-RUN cd /tmp
-RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.2/powershell-preview_7.2.0-preview.2-1.ubuntu.20.04_amd64.deb
-RUN dpkg -i *.deb
-RUN rm powershell-preview_7.2.0-preview.2-1.ubuntu.20.04_amd64.deb
 
 # Install dependencies
 RUN apt-get install python3-pip iputils-ping nano -y
