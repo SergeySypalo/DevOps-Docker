@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/powershell:preview-ubuntu-20.04
 
 # Upgrade packages
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies
 RUN apt-get install python3-pip iputils-ping nano
