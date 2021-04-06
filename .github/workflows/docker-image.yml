@@ -21,6 +21,6 @@ jobs:
         uses: docker/build-push-action@v1
         with: 
           repository: sergeysypalo/devops
-          username: "${{ DOCKER_USERNAME }}"  
-          password: "${{ DOCKER_PASSWORD }}"
+          username: "{{ $DOCKER_USERNAME }}"  
+          password: "{{ $DOCKER_PASSWORD }}"
           tag_with_ref: true
