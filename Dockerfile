@@ -1,28 +1,8 @@
 # Use an existing docker image as a base 
-FROM mcr.microsoft.com/powershell:7.2.0-preview.1-ubuntu-20.04
+FROM mcr.microsoft.com/powershell:preview-ubuntu-20.04
 
 # Upgrade packages
 RUN apt-get update && apt-get upgrade
-
-# Install update-manager-core package
-RUN apt-get install update-manager-core
-
-# Change default branch from lts to normal
-RUN sed -i 's/lts/normal/g' /etc/update-manager/release-upgrades
-
-# Change default distro from your current focal (20.04 codename) to groovy (20.10 codename)
-RUN sed -i 's/focal/groovy/g' /etc/apt/sources.list
-
-# Run full upgrade
-RUN apt-get dist-upgrade
-
-# Run cleanup
-RUN apt-get autoremove && apt-get clean
-
-# Change current directory to /tmp
-RUN cd /tmp
-RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.2/powershell-preview_7.2.0-preview.2-1.ubuntu.20.04_amd64.deb
-RUN dpkg -i *.deb
 
 # Install dependencies
 RUN apt-get install python3-pip iputils-ping nano
