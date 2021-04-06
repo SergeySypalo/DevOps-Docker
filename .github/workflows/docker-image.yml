@@ -1,6 +1,5 @@
 --- 
-- 
-  name: "Docker Image CI"
+- name: "Docker Image CI"
   on:      
     push:
       branches: [ master ]
@@ -13,8 +12,7 @@
         - uses: actions/checkout@v2
         - name: "Build the Docker image"
           run: "docker build . --file Dockerfile --tag devops:$(date +%s)"
-- 
-  name: "Publish Docker image"
+- name: "Publish Docker image"
   on:
     release:
       types: [published]
