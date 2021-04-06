@@ -34,5 +34,5 @@ jobs:
         with:
           username: ${{ DOCKER_USERNAME }}
           password: ${{ DOCKER_PASSWORD }}
-          repository: my-docker-hub-namespace/my-docker-hub-repository
+          repository: sergeysypalo/devops
           tag_with_ref: true
