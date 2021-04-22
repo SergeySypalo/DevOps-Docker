@@ -5,8 +5,8 @@ FROM mcr.microsoft.com/powershell:7.2.0-preview.5-ubuntu-20.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies
-RUN apt-get install python3-pip iputils-ping nano netaddr wget -y
-RUN pip3 install ansible requests paramiko jira ucsmsdk
+RUN apt-get install python3-pip iputils-ping nano wget -y
+RUN pip3 install ansible requests paramiko jira ucsmsdk netaddr
 
 # Install modules
 RUN pwsh -command "Install-Module VMWare.PowerCLI, AWSPowerShell.NetCore -Force"
