@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/powershell:7.2.0-preview.7-ubuntu-20.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies
-RUN apt-get install python3-pip iputils-ping nano curl wget git dnsutils  -y
+RUN apt-get install python3-pip iputils-ping nano curl wget jq git dnsutils  -y
 RUN pip3 install ansible requests paramiko jira ucsmsdk netaddr
 
 # Install modules
