@@ -6,7 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies
 RUN apt-get install python3-pip iputils-ping nano curl wget jq git dnsutils  -y
-RUN pip3 install ansible requests paramiko jira ucsmsdk netaddr
+RUN pip3 install ansible requests paramiko jira ucsmsdk netaddr pandas alpha_vantage
 
 # Install modules
 RUN pwsh -command "Install-Module VMWare.PowerCLI, AWSPowerShell.NetCore -Force"
