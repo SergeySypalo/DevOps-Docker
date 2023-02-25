@@ -1,5 +1,5 @@
 # Use an existing docker image as a base 
-FROM mcr.microsoft.com/powershell:7.3-ubuntu-22.04
+FROM mcr.microsoft.com/powershell:preview-7.4-ubuntu-22.04
 
 # Upgrade packages
 RUN apt-get update && apt-get upgrade -y
